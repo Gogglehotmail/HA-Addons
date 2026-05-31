@@ -1,6 +1,6 @@
 name: Hermes AI Bridge
 slug: hermes
-version: "1.0.4"
+version: "1.0.5"
 description: AI Bridge for Home Assistant with API access
 
 startup: services
