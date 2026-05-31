@@ -1,0 +1,20 @@
+name: Hermes AI Bridge
+version: "1.0.0"
+slug: hermes_bridge
+description: AI Bridge API for Home Assistant (LLM compatible)
+
+startup: services
+boot: auto
+init: false
+host_network: true
+
+ports:
+  8080/tcp: 8080
+
+options:
+  hass_url: "http://homeassistant.local:8123"
+  hass_token: ""
+
+schema:
+  hass_url: str
+  hass_token: password
