@@ -1,4 +1,4 @@
-FROM ghcr.io/home-assistant/base:3.20
+FROM ghcr.io/home-assistant/addon-base:17.0.0
 
 RUN apk add --no-cache python3 py3-pip
 
