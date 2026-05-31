@@ -3,5 +3,8 @@ FROM python:3.11-slim
 RUN pip install fastapi uvicorn requests
 
 COPY server.py /server.py
+COPY run.sh /run.sh
 
-CMD ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8080"]
+RUN chmod +x /run.sh
+
+CMD ["/run.sh"]
