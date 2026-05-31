@@ -1,11 +1,16 @@
 name: Hermes AI Bridge
+slug: hermes
 version: "1.0.0"
-slug: hermes_bridge
-description: AI Bridge API for Home Assistant (LLM compatible)
+description: AI Bridge for Home Assistant with API access
 
 startup: services
 boot: auto
 init: false
+
+arch:
+  - aarch64
+  - amd64
+
 host_network: true
 
 ports:
