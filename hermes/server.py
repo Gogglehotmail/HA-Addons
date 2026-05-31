@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-import requests
 import os
+import requests
 
 app = FastAPI()
 
@@ -17,17 +17,17 @@ class ChatRequest(BaseModel):
 def chat(req: ChatRequest):
     text = req.message.lower()
 
-    # VERY SIMPLE AI TOOL LOGIC (LLM später ersetzbar)
     actions = []
 
-    if "light" in text and "on" in text:
+    # SIMPLE TEST LOGIC
+    if "light on" in text:
         actions.append(call_service("light", "turn_on", {"entity_id": "light.living_room"}))
 
-    if "light" in text and "off" in text:
+    if "light off" in text:
         actions.append(call_service("light", "turn_off", {"entity_id": "light.living_room"}))
 
     return {
-        "response": f"Processed: {req.message}",
+        "response": f"OK: {req.message}",
         "actions": actions
     }
 
@@ -45,8 +45,4 @@ def call_service(domain, service, data):
 
     requests.post(url, json=data, headers=headers)
 
-    return {
-        "domain": domain,
-        "service": service,
-        "data": data
-    }
+    return {"called": f"{domain}.{service}"}
