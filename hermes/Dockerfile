@@ -3,5 +3,8 @@ FROM python:3.11-slim
 RUN pip install fastapi uvicorn requests
 
 COPY server.py /server.py
+COPY run.sh /run.sh
 
-CMD ["python", "/server.py"]
+RUN chmod +x /run.sh
+
+CMD ["/run.sh"]
