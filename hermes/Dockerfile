@@ -1,12 +1,7 @@
-FROM ghcr.io/home-assistant/addon-base:17.0.0
+FROM python:3.11-slim
 
-RUN apk add --no-cache python3 py3-pip
-
-RUN pip3 install fastapi uvicorn requests
+RUN pip install fastapi uvicorn requests
 
 COPY server.py /server.py
-COPY run.sh /run.sh
 
-RUN chmod +x /run.sh
-
-CMD ["/run.sh"]
+CMD ["python", "/server.py"]
